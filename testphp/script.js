@@ -1,8 +1,13 @@
-let submit = document.getElementById("submit");
-let modalWindow = document.getElementById("modalWindow");
-let close = document.getElementsByClassName("close")[0];
-let confirm = document.getElementById("confirmAppointment")
+//--BEGIN COMMENT--
+// these lines of code triggers sidebar collapse and expand
+let sideBtn = document.getElementById("sideIcon");
+let main = document.querySelector(".main");
+sideBtn.addEventListener("click", function(event) {
+    main.classList.toggle("collapsed")
+})
+//--END COMMENT--
 
+//--BEGIN COMMENT--
 // creates a modal window returning a response based on time input
 function modal_window(text) {
     modalWindow.style.display = "flex";
@@ -18,8 +23,14 @@ function modal_window(text) {
         }
     }
 }
+//--END COMMENT--
 
-
+//--BEGIN COMMENT--
+// these area insert rows of new data from the form submission
+let submit = document.getElementById("submit");
+let modalWindow = document.getElementById("modalWindow");
+let close = document.getElementsByClassName("close")[0];
+let confirm = document.getElementById("confirmAppointment");
 submit.addEventListener("click", function(event) {
     event.preventDefault();
 
@@ -57,3 +68,5 @@ submit.addEventListener("click", function(event) {
         modal_window("Time Outside Operating Hours."); // function call
     }
 })
+// TODO: remove later when PHP is added.
+//--END COMMENT--

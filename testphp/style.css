@@ -33,6 +33,15 @@ body {
     margin-left: 10px;
     font-weight: bold;
 }
+.sideIcon {
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+    padding-right: 10px;
+}
+.sideIcon:hover {
+    font-size: 1.1em;
+    transition: 0.25s ease-in-out;
+}
 .searchBox {
     margin-right: 10px;
 }
@@ -48,10 +57,14 @@ body {
     height: var(--var-main-height);
     display: flex;
 }
+
+.main.collapsed .sidebar { width: 0; }
 .sidebar {
     width: 200px;
     height: var(--var-main-height);
     background-color: var(--var-sidebar-color-light);
+    transition: 0.3s ease-in-out;
+    overflow: hidden;
 }
 .sidebar > div {
     width: 80%;
@@ -71,6 +84,8 @@ body {
 }
 .mainContent {
     width: calc(100% - 200px);
+    flex: 1;
+    transition: 0.3s ease-in-out;
 }
 #displayTable {
     width: 100%;
