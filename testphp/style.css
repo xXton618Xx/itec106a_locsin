@@ -1,0 +1,169 @@
+:root {
+    /*HTML Root Border Styles*/
+    --var-border-dark: 1px solid #111;
+    --var-border-gray: 1px solid #aba;
+
+    /*HTML Root Dimensions*/
+    --var-header-height: 10dvh;
+    --var-main-height: 90dvh;
+
+    /*HTML Root Color Styles*/
+    --var-header-color-light: rgb(118, 200, 36);
+    --var-sidebar-color-light: rgb(50, 147, 23);
+}
+
+html {
+    overflow: hidden;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+.header {
+    width: 100%;
+    height: var(--var-header-height);
+    background-color: var(--var-header-color-light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.siteTitle {
+    font-size: 1.5em;
+    margin-left: 10px;
+    font-weight: bold;
+}
+.searchBox {
+    margin-right: 10px;
+}
+.searchForm input {
+    width: 250px;
+    height: 20px;
+    border-radius: 6px;
+    border: unset;
+    padding-left: 10px;
+}
+.main {
+    width: 100%;
+    height: var(--var-main-height);
+    display: flex;
+}
+.sidebar {
+    width: 200px;
+    height: var(--var-main-height);
+    background-color: var(--var-sidebar-color-light);
+}
+.sidebar > div {
+    width: 80%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    border-radius: 10px;
+    transition: 0.25s ease-in-out;
+}
+.sidebar > div:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transition: 0.25s ease-in-out;
+}
+.mainContent {
+    width: calc(100% - 200px);
+}
+#displayTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+.headTable {
+    font-weight: bold;
+    td {
+        padding-left: 10px;
+    }
+    td:nth-child(1) {
+        width: 150px;
+    }
+    td:nth-child(2) {
+        width: 200px;
+    }
+    td:nth-child(3) {
+        width: 200px;
+    }
+}
+.bodyTable {
+    td {
+        padding-left: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    td:nth-child(1) {
+        width: 150px;
+    }
+    td:nth-child(2) {
+        width: 200px;
+    }
+    td:nth-child(3) {
+        width: 200px;
+    }
+}
+.headTable, .bodyTable {
+    border: var(--var-border-gray);
+}
+.bodyTable:nth-child(even) {
+    background-color: #ddd;
+}
+.bodyTable:hover {
+    background-color: rgba(200, 200, 200, 0.3);
+}
+.appTitle {
+    padding-left: 10px;
+}
+.makeAppointment {
+    width: 100%;
+    margin-top: 20px;
+}
+.formtable {
+    width: 500px;
+    margin-left: 10px;
+}
+#surname, #firstname, #department, #date, #time, #purpose {
+    width: 95%;
+}
+#purpose {
+    height: 70px;
+}
+#submit {
+    margin-left: 10px;
+}
+
+/*modal Window*/
+.modalWindow {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+.modalContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #aaa;
+    width: 25%;
+    height: 70px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    padding-left: 20px;
+    border-radius: 16px;
+}
+.close {
+    color: #555;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    padding-right: 20px;
+}

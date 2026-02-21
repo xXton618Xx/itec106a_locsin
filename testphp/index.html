@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>ITEC 106A</title>
+    </head>
+    <body>
+        <header class="header">
+            <div class="siteTitle">
+                ClassPoint Templates
+            </div>
+            <div class="searchBox">
+                <form class="searchForm">
+                    <input type="text" placeholder="search here">
+                </form>
+            </div>
+        </header>
+        <main class="main">
+            <aside class="sidebar">
+                <div class="dashboard">Dashboard</div>
+                <div class="templates">Templates</div>
+                <div class="history">History</div>
+                <div class="settings">Settings</div>
+            </aside>
+            <div class="mainContent">
+                <div class="tableDisplay">
+                    <table id="displayTable">
+                        <thead>
+                            <tr class="headTable">
+                                <td>Appointment ID</td>
+                                <td>Name</td>
+                                <td>Department</td>
+                                <td>Purpose</td>
+                                <td>Date</td>
+                                <td>Time</td>
+                                <td>Status</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bodyTable">
+                                <td>IT12-34EF-56</td>
+                                <td>Paul Aljon Locsin</td>
+                                <td>IT</td>
+                                <td>Ticket Request</td>
+                                <td>2026-02-05</td>
+                                <td>12:00 PM</td>
+                                <td>Pending</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="makeAppointment">
+                    <h2 class="appTitle">Make Appointment</h2>
+                    <form>
+                        <table class="formtable">
+                            <tr>
+                                <td><label for="surname">Surname</label></td>
+                                <td>
+                                    <input type="text" id="surname" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="firstname">First Name</label></td>
+                                <td>
+                                    <input type="text" id="firstname" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="department">Department</label></td>
+                                <td>
+                                    <select name="department"id="department" required>
+                                        <option>IT</option>
+                                        <option>Finance</option>
+                                        <option>Requests</option>
+                                        <option>Others</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="date">Date</label></td>
+                                <td><input type="date" id="date" required></td>
+                            </tr>
+                            <tr>
+                                <td><label for="time">Time</label></td>
+                                <td><input type="time" id="time" required></td>
+                            </tr>
+                            <tr>
+                                <td><label for="purpose">Purpose</label></td>
+                                <td><textarea id="purpose" placeholder="purpose"></textarea></td>
+                            </tr>
+                        </table>
+                        <button type="submit" id="submit">Submit</button>
+                        <button type="reset">reset</button>
+                    </form>
+                </div>
+                <div class="modalWindow" id="modalWindow">
+                    <div class="modalContent">
+                        <p id="confirmAppointment"></p>
+                        <span class="close">&times;</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="script.js"></script>
+    </body>
+</html>
