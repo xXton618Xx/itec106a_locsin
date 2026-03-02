@@ -14,3 +14,14 @@ inclusions #1 (as of 2026-02-21)
 inclusions #2  (as of 2026-02-21)
 1. style.css changes (collapsible sidebar)
 2. script.js changes (collapsible sidebar toggle on 1 icon button)
+
+> Midterms
+inclusions #1 (as of 2026-03-02 Happy birthday, Karen ^.^ )
+1. added index.php file containing:
+  - Appointments Class
+  - Appointments __construct()
+  - Appointments getter functions
+  - Post Request Method to display output
+  - Table Display as output
+  - Form Table as input, connected to PHP via POST method
+Warning: do not remove the session_start() above, it keeps the data from inputs persistent until refreshed.
