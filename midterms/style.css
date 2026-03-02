@@ -1,0 +1,26 @@
+html {
+    font-family: system-ui, sans-serif;
+}
+
+table {
+    border-collapse: collapse;
+}
+.displayRow > td {
+    border: 1px solid black;
+    padding: 5px;
+}
+.rowHeader {
+    font-weight: bold;
+}
+.formTable {
+    width: 400px;
+}
+.formLabel {
+    width: 150px;
+}
+.formInput {
+    width: 200px;
+}
+.formInput > input, .formInput > select {
+    width: 95%;
+}
