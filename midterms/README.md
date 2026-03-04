@@ -6,7 +6,7 @@
     - Start MySQL
 2. using the web browser's 'localhost/phpmyadmin/, you can create the database by clicking the 'New'
 3. name your database to whatever you prefer, use your surname for easier reference.
-4. once database is created, create a new table named 'appointments', using the following command:
+4. once database is created, create a new table named 'appointments', using the following command:\n
     create table appointments (
         appID int(3) primary key auto_increment,
         clinicName varchar(50),
