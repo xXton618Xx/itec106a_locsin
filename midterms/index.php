@@ -1,43 +1,27 @@
-<?php
-session_start(); // this is very important, don't forget it to ensure data persistence!
-
-class Appointments {
-    public $clinicName;
-    public $patientName;
-    public $age;
-    public $appointDate;
-    public $appointTime;
-    public $appointType;
-    
-    public function __construct($clinic, $name, $age, $date, $time, $type) {
-        $this->clinicName = $clinic;
-        $this->patientName = $name;
-        $this->age = $age;
-        $this->appointDate = $date;
-        $this->appointTime = $time;
-        $this->appointType = $type;
-    }
-    public function getClinicName() { return $this->clinicName; }
-    public function getPatientName() { return $this->patientName; }
-    public function getAge() { return $this->age; }
-    public function getAppointDate() { return $this->appointDate; }
-    public function getAppointTime() { return $this->appointTime; }
-    public function getAppointType() { return $this->appointType; }
-}
-if (!isset($_SESSION["appointment_list"])) { // create a new array if session variable does not exist
-    $_SESSION["appointment_list"] = [];
-}
+<?php include_once "appointments.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $id = $_POST["id"];
     $clinic = $_POST["clinicName"];
     $name = $_POST["patientName"];
     $age = $_POST["age"];
     $date = $_POST["appointDate"];
     $time = $_POST["appointTime"];
     $type = $_POST["appointType"];
-    
-    $newAppointment = new Appointments($clinic, $name, $age, $date, $time, $type);
-    $_SESSION["appointment_list"][] = $newAppointment; //append the new appointment to the session array
+    $new_appointment = new Appointments($id, $clinic, $name, $age, $date, $time, $type);
+    $state = $conn->prepare("INSERT INTO appointments (clinicName, patientName, age, appDate, appTime, appType) 
+                             VALUES (?, ?, ?, ?, ?, ?)");
+    $state->bind_param("ssisss", 
+        $new_appointment->getClinicName(),
+        $new_appointment->getPatientName(),
+        $new_appointment->getAge(),
+        $new_appointment->getAppointDate(),
+        $new_appointment->getAppointTime(),
+        $new_appointment->getAppointType()
+    );
+    $state->execute();
+    header("Location: index.php");
+    exit();
 }
 ?>
 <!DOCTYPE html>
@@ -61,9 +45,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <td>Appointment Date</td>
                 <td>Appointment Time</td>
                 <td>Appointment Type</td>
+                <td class="options">Options</td>
             </tr>
             <?php
-                foreach ($_SESSION["appointment_list"] as $i) {
+                $app_list = [];
+                $result = $conn->query("SELECT * FROM appointments");
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        $new_appointment = new Appointments(
+                            $row['appID'],
+                            $row['clinicName'], 
+                            $row['patientName'], 
+                            $row['age'], 
+                            $row['appDate'], 
+                            $row['appTime'], 
+                            $row['appType']
+                        );
+                        $app_list[] = $new_appointment;
+                    }
+                }
+                foreach ($app_list as $i) {
                 ?>
                 <tr class="displayRow">
                     <td><?= $i->getClinicName(); ?></td>
@@ -72,6 +73,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <td><?= $i->getAppointDate(); ?></td>
                     <td><?= $i->getAppointTime(); ?></td>
                     <td><?= $i->getAppointType();?></td>
+                    <td class="options">
+                        <div class="optbutton">
+                            <a href="delete.php?id=<?= $i->getAppointId(); ?>">Delete</a>
+                        </div>
+                        <div class="optbutton">
+                            <a href="edit.php?id=<?= $i->getAppointId(); ?>">Edit</a>
+                        </div>
+                    </td>
                 </tr>
             <?php } ?>
         </table>
