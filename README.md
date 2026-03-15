@@ -32,3 +32,4 @@ inclusions:
   2. covers Create, Read, Update, Delete protocols
   3. style.css to be ignored, focus on php
   4. follow midterm protocols for file migration to htdocs inside /midterms/README.md
+  5. except for appointments.php (exclude this one). focus on PHP protocols
