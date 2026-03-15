@@ -25,3 +25,10 @@ inclusions #1 (as of 2026-03-02 Happy birthday, Karen ^.^ )
   - Table Display as output
   - Form Table as input, connected to PHP via POST method
 Warning: do not remove the session_start() above, it keeps the data from inputs persistent until refreshed.
+
+> Laboratory 6
+inclusions:
+  1. added all php files needed for laboratory 6
+  2. covers Create, Read, Update, Delete protocols
+  3. style.css to be ignored, focus on php
+  4. follow midterm protocols for file migration to htdocs inside /midterms/README.md
