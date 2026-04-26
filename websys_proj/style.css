@@ -1,0 +1,85 @@
+html {
+  overflow: hidden;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100dvh;
+}
+/* register.php styles */
+.regContent {
+  display:flex;
+}
+.register {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mainRegister {
+  width: 600px;
+  height: 400px;
+}
+.regFieldset {
+  border-radius: 20px;
+}
+.passCondition {
+  margin-left: 5px;
+}
+/* modal window style */
+.modalWindow {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: 0.5s ease-in-out;
+}
+.modalContent {
+  justify-content: space-between;
+  background-color: #fefefe;
+  width: 25%;
+  height: 150px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  padding-left: 20px;
+  border-radius: 16px;
+}
+/* index.php styles */
+.bodylogin {
+  margin: 0;
+  padding: 0;
+}
+.mainForm {
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* dashboard.php styles */
+.header {
+  width: 100%;
+  height: 10dvh;
+  background-color: rgb(100, 200, 0);
+}
+.mainContent {
+  display: flex;
+  width: 100%;
+  height: 90dvh;
+}
+.sidebar {
+  width: 200px;
+  height: 100%;
+  background-color: rgb(60, 110, 22);
+}
+.greet {
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 5px;
+}
